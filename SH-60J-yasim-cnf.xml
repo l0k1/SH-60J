@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="SH-60J-base.xml">
+
+  <sim>
+
+    <description>SH-60J (YASim)</description>
+    <author>Hitoshi Uchida (3D/FDM)</author>
+    <flight-model archive="y">yasim</flight-model>
+    <aero archive="y">SH-60J-yasim</aero>
+
+  </sim>
+
+</PropertyList>
+
+
