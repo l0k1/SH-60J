@@ -1,4 +1,4 @@
-	　　　　GNU GENERAL PUBLIC LICENSE
+	　　　GNU GENERAL PUBLIC LICENSE
              FlightGear Model SH-60J 
  Copyright (C) 2016 Uchi craft room / Hitoshi Uchida
 
