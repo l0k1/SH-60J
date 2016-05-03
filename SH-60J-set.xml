@@ -4,7 +4,7 @@
 	<sim >
 
 		<description>Mitsubishi SH-60J (YASim)</description>
-		<author>Hitoshi Uchida(3D/FDM)</author>
+		<author>Hitoshi Uchida(3D/FDM), TheFoxtrotBravo, Necolatis (damage.nas)</author>
 		<status>1.3</status>
 		<license>GPL v2</license>
 
@@ -430,6 +430,10 @@
                 <tews>
                         <file>Aircraft/SH-60J/Models/Interior/Instruments/TEWS/radar.nas</file>
                 </tews>
+				
+				<damage>
+						<file>Aircraft/SH-60J/Nasal/damage.nas</file>
+				</damage>
 	</nasal>
 
 	<rotors>
