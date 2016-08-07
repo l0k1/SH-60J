@@ -8,6 +8,30 @@
 <PropertyList>
 	<fx>
 
+
+		<WIPER>
+			<name>WIPE</name>
+			<mode>loop</mode>
+			<path>Aircraft/SH-60J/Sounds/RAST.wav</path>
+	                <condition>
+                          <and>
+                            <less-than>
+                               <property>/controls/special/wiper-deg</property>
+                               <value>20</value>
+                            </less-than>
+                            <greater-than>
+                               <property>/controls/special/wiper-deg</property>
+                               <value>1</value>
+                            </greater-than>
+                          </and>
+	                </condition>
+			<volume>
+                         <factor>1</factor>
+                        </volume>
+		</WIPER>
+
+<!-- ****************************************************** -->
+
 		<RAST>
 			<name>RAST</name>
 			<mode>once</mode>
