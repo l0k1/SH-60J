@@ -1021,6 +1021,8 @@
 
   <animation>
     <type>select</type>
+     <object-name>nav-light-left</object-name>
+     <object-name>nav-light-right</object-name>
     <object-name>Tail-Light</object-name>
     <object-name>nav-light-tail</object-name>
     <condition>
