@@ -167,15 +167,17 @@
         <control-input axis="/controls/gear/brake-parking" control="BRAKE" split="true"/>
   </gear>
 
-  <gear x="-3.73" y="0.2" z="-2.95" on-water="0" on-solid="1" ignore-by-solver="1" compression="0.5" spring="1" damp="0.9" sfric= "1.5" dfric="0.8">
+  <gear x="-3.73" y="0.1" z="-2.95" on-water="0" on-solid="1" ignore-by-solver="1" compression="0.5" spring="1.1" damp="1.1" sfric= "1.5" dfric="0.8">
         <control-input axis="/controls/flight/rudder" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="1.0" dst1="-1.0"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE" />
  </gear>
 
-  <gear x="-3.73" y="-0.2" z="-2.95" on-water="0" on-solid="1" ignore-by-solver="1" compression="0.5" spring="1" damp="0.9" sfric= "1.5" dfric="0.8">
+  <gear x="-3.73" y="-0.1" z="-2.95" on-water="0" on-solid="1" ignore-by-solver="1" compression="0.5" spring="1.1" damp="1.1" sfric= "1.5" dfric="0.8">
         <control-input axis="/controls/flight/rudder" control="STEER" square="true" src0="-1.0" src1="1.0" dst0="1.0" dst1="-1.0"/>
         <control-input axis="/controls/gear/brake-parking" control="BRAKE" />
   </gear>
+
+  <gear x="-5.73" y="0.0" z="-2.45" on-water="0" on-solid="1" ignore-by-solver="1" compression="0.2" spring="1.1" damp="1.1"></gear>
 
    <hook x="-0.419" y="0.000" z="-1.999" length="0.7" down-angle="90" up-angle="0">
         <control-input axis="/controls/gear/tailhook" control="HEXTEND"/>

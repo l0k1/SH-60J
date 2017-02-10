@@ -5,7 +5,7 @@
 
 		<description>Mitsubishi SH-60J (YASim)</description>
 		<author>Hitoshi Uchida(3D/FDM)</author>
-		<status>v1.4</status>
+		<status>v1.5</status>
 
 		<flight-model>yasim</flight-model>
 		<aero>SH-60J</aero>
@@ -414,6 +414,7 @@
                        <file>Aircraft/SH-60J/Nasal/instruments.nas</file>
                        <file>Aircraft/SH-60J/Nasal/electrical.nas</file>
                        <file>Aircraft/SH-60J/Nasal/wiper.nas</file>
+                       <file>Aircraft/SH-60J/Nasal/light-manager.nas</file>
                 </SH-60J>
 		<doors>
                        <file>Aircraft/SH-60J/Nasal/doors.nas</file>

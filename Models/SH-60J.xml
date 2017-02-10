@@ -781,6 +781,11 @@
     </condition>
   </animation>
 
+  <animation>
+    <type>noshadow</type>
+    <object-name>shadowOSG</object-name>
+  </animation>
+
 
 <!-- PILOT -->
   <model>
@@ -812,6 +817,45 @@
   <model>
     <name>SENSOR-MAN</name>
     <path>Aircraft/SH-60J/Models/Pilot/sensor-man.ac</path>
+    <offsets>
+      <x-m> -0.30 </x-m>
+      <y-m> -0.75 </y-m>
+      <z-m> -1.36 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>PILOT-seat</name>
+    <path>Aircraft/SH-60J/Models/Pilot/fighter_pilot_seat.ac</path>
+    <offsets>
+      <x-m> -2.8 </x-m>
+      <y-m> 0.63 </y-m>
+      <z-m> -1.10 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>COPILOT-seat</name>
+    <path>Aircraft/SH-60J/Models/Pilot/co-fighter_pilot_seat.ac</path>
+    <offsets>
+      <x-m> -2.8 </x-m>
+      <y-m> -0.63 </y-m>
+      <z-m> -1.10 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>SENSOR-MAN</name>
+    <path>Aircraft/SH-60J/Models/Pilot/sensor-man_seat.ac</path>
     <offsets>
       <x-m> -0.30 </x-m>
       <y-m> -0.75 </y-m>
@@ -921,6 +965,16 @@
     </offsets>
   </model>
 
+    <model>
+        <name>nav-light-left</name>
+        <path>effects/lights/procedural_light_nav_left.xml</path>
+        <offsets>
+      <x-m> -2.004 </x-m>
+      <y-m> -1.513 </y-m>
+      <z-m> -1.912</z-m>
+        </offsets>
+    </model>
+
   <model>
     <path>Aircraft/SH-60J/Models/light/GreenLight.xml</path>
     <offsets>
@@ -929,6 +983,16 @@
       <z-m> -1.912</z-m>
     </offsets>
   </model>
+
+    <model>
+        <name>nav-light-right</name>
+        <path>effects/lights/procedural_light_nav_right.xml</path>
+        <offsets>
+      <x-m>  -2.004 </x-m>
+      <y-m> 1.513 </y-m>
+      <z-m> -1.912</z-m>
+        </offsets>
+    </model>
 
 
 
@@ -942,9 +1006,23 @@
     </offsets>
   </model>
 
+   <model>
+        <name>nav-light-tail</name>
+        <path>effects/lights/procedural_light_nav_tail.xml</path>
+        <offsets>
+      <x-m> 10.319 </x-m>
+      <y-m> -0.001 </y-m>
+      <z-m> -0.080 </z-m>
+      <pitch-deg> 0.00 </pitch-deg>
+      <heading-deg> 180 </heading-deg>
+        </offsets>
+    </model>
+
+
   <animation>
     <type>select</type>
     <object-name>Tail-Light</object-name>
+    <object-name>nav-light-tail</object-name>
     <condition>
           <property>controls/lighting/nav-lights</property>
     </condition>
