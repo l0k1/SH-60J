@@ -5,7 +5,7 @@
 
 		<description>Mitsubishi SH-60J (YASim)</description>
 		<author>Hitoshi Uchida(3D/FDM)</author>
-		<status>v1.6</status>
+		<status>v1.5</status>
 
 		<flight-model>yasim</flight-model>
 		<aero>SH-60J</aero>
@@ -345,15 +345,14 @@
                                </binding>
                         </key>
 
- <key n="101">
-  <name>e</name>
-  <desc>Up/Down arresting hook</desc>
-  <binding>
-   <command>property-toggle</command>
-   <property>/controls/gear/tailhook</property>
-  </binding>
- </key>
-
+			 <key n="101">
+			  	<name>e</name>
+			  	<desc>Up/Down arresting hook</desc>
+			  	<binding>
+			   		<command>property-toggle</command>
+			   		<property>/controls/gear/tailhook</property>
+			  	</binding>
+ 			</key>
 
 			<key n="114">
 				<name>r</name>
@@ -369,8 +368,6 @@
 					</binding>
 				</mod-up>
 			</key>
-
-			
 
 			<key n="123">
 				<name>{</name>
@@ -396,6 +393,58 @@
 				</binding>
 			</key>
 
+ 			<key n="98">
+			  <name>b</name>
+			  <desc>Apply all brakes</desc>
+				<binding>
+					<command>nasal</command>
+					<script>interpolate("/controls/gear/brake-left", 1.0, 0.5)</script>
+				</binding>
+				<binding>
+					<command>nasal</command>
+                                        <script>interpolate("/controls/gear/brake-right", 1.0, 0.5)</script>
+				</binding>
+				<mod-up>
+					<binding>
+						<command>nasal</command>
+						<script>interpolate("/controls/gear/brake-left", 0.0, 0.5)</script>
+					</binding>
+					<binding>
+						<command>nasal</command>
+                                                <script>interpolate("/controls/gear/brake-right", 0.0, 0.5)</script>
+					</binding>
+				</mod-up>
+			 </key>
+
+		 <key n="44">
+		  <name>,</name>
+		  <desc>Left brake</desc>
+			<binding>
+				<command>nasal</command>
+				<script>interpolate("/controls/gear/brake-left", 1.0, 0.5)</script>
+			</binding>
+			<mod-up>
+			<binding>
+				<command>nasal</command>
+				<script>interpolate("/controls/gear/brake-left", 0.0, 0.5)</script>
+			</binding>
+			</mod-up>
+		 </key>
+
+		 <key n="46">
+ 		 <name>.</name>
+ 		 <desc>Right brake</desc>
+			<binding>
+				<command>nasal</command>
+				<script>interpolate("/controls/gear/brake-right", 1.0, 0.5)</script>
+			</binding>
+			<mod-up>
+				<binding>
+					<command>nasal</command>
+					<script>interpolate("/controls/gear/brake-right", 0.0, 0.5)</script>
+				</binding>
+			</mod-up>
+ 		</key>
 
 		</keyboard>
 	</input>
