@@ -5,7 +5,7 @@
 
 		<description>Mitsubishi SH-60J (YASim)</description>
 		<author>Hitoshi Uchida(3D/FDM)</author>
-		<status>v1.6</status>
+		<status>v1.7</status>
 
 		<flight-model>yasim</flight-model>
 		<aero>SH-60J</aero>
