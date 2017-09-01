@@ -11,13 +11,34 @@ var clamp = func(v, min, max) { v < min ? min : v > max ? max : v }
 var TRUE  = 1;
 var FALSE = 0;
 
+var cannon_types = {
+    " M70 rocket hit":        0.25, #135mm
+    " M55 cannon shell hit":  0.10, # 30mm
+    " KCA cannon shell hit":  0.10, # 30mm
+    " Gun Splash On ":        0.10, # 30mm
+    " M61A1 shell hit":       0.05, # 20mm
+    " GAU-8/A hit":           0.10, # 30mm
+    " BK27 cannon hit":       0.07, # 27mm
+    " GSh-30 hit":            0.10, # 30mm
+    " GSh-23 hit":            0.065,# 23mm
+    " 7.62 hit":              0.005,# 7.62mm
+    " 50 BMG hit":            0.015,# 12.7mm
+};
+    
+    
+    
 var warhead_lbs = {
     "aim-120":              44.00,
     "AIM120":               44.00,
+    "AIM-120":              44.00,
     "RB-99":                44.00,
     "aim-7":                88.00,
+    "AIM-7":                88.00,
     "RB-71":                88.00,
     "aim-9":                20.80,
+    "AIM9":                 20.80,
+    "AIM-9":                20.80,
+    "RB-24":                20.80,
     "RB-24J":               20.80,
     "RB-74":                20.80,
     "R74":                  16.00,
@@ -25,14 +46,36 @@ var warhead_lbs = {
     "Meteor":               55.00,
     "AIM-54":              135.00,
     "Matra R550 Magic 2":   27.00,
+    "MatraR550Magic2":      27.00,
     "Matra MICA":           30.00,
+    "MatraMica":            30.00,
+    "MatraMicaIR":          30.00,
     "RB-15F":              440.92,
     "SCALP":               992.00,
     "KN-06":               315.00,
     "GBU12":               190.00,
     "GBU16":               450.00,
     "Sea Eagle":           505.00,
+    "SeaEagle":            505.00,
     "AGM65":               200.00,
+    "RB-04E":              661.00,
+    "RB-05A":              353.00,
+    "RB-75":               126.00,
+    "M90":                 500.00,
+    "M71":                 200.00,
+    "M71R":                200.00,
+    "MK-82":               192.00,
+    "LAU-68":               10.00,
+    "M317":                145.00,
+    "GBU-31":              945.00,
+    "AIM132":               22.05,
+    "ALARM":               450.00,
+    "STORMSHADOW":         850.00,
+    "R-60":                  6.60,
+    "R-27R1":               85.98,
+    "R-27T1":               85.98,
+    "FAB-500":             564.00,
+    "Exocet":              364.00,
 };
 
 var incoming_listener = func {
@@ -152,20 +195,35 @@ var incoming_listener = func {
               nearby_explosion();
             }
           } 
-        } elsif (last_vector[1] == " M70 rocket hit" or last_vector[1] == " KCA cannon shell hit" or last_vector[1] == " Gun Splash On " or last_vector[1] == " M61A1 shell hit") {
-          # cannon hitting someone
-          #print("cannon");
+        } elsif (cannon_types[last_vector[1]] != nil) {
           if (size(last_vector) > 2 and last_vector[2] == " "~callsign) {
-            # that someone is me!
-            #print("hitting me");
-
-            var probability = 0.20; # take 20% damage from each hit
-            if (last_vector[1] == " M70 rocket hit" or last_vector[1] == " Gun Splash On ") {
-              probability = 0.30;
+            if (size(last_vector) < 4) {
+              # msg is either missing number of hits, or has no trailing dots from spam filter.
+              print('"'~last~'"   is not a legal hit message, tell the shooter to upgrade his OPRF plane :)');
+              return;
             }
-            var failed = fail_systems(probability);
-            printf("Took %.1f%% damage from cannon! %s systems was hit.", probability*100, failed);
-            nearby_explosion();
+            var last3 = split(" ", last_vector[3]);
+            if(size(last3) > 2 and size(last3[2]) > 2 and last3[2] == "hits" ) {
+              var probability = cannon_types[last_vector[1]];
+              var hit_count = num(last3[1]);
+              if (hit_count != nil) {
+                var damaged_sys = 0;
+                for (var i = 1; i <= hit_count; i = i + 1) {
+                  var failed = fail_systems(probability);
+                  damaged_sys = damaged_sys + failed;
+                }
+
+                printf("Took %.1f%% x %2d damage from cannon! %s systems was hit.", probability*100, hit_count, damaged_sys);
+                nearby_explosion();
+              }
+            } else {
+              var probability = cannon_types[last_vector[1]];
+              #print("probability: " ~ probability);
+              
+              var failed = fail_systems(probability * 3);# Old messages is assumed to be 3 hits
+              printf("Took %.1f%% x 3 damage from cannon! %s systems was hit.", probability*100, failed);
+              nearby_explosion();
+            }
           }
         }
       }
