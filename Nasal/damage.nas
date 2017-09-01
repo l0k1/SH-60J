@@ -248,6 +248,12 @@ var fail_systems = func (probability) {
             failed += 1;
         }
     }
+    for(var i = 0; i < 3; i = i + 1){
+      if(rand() < probability * 2) {
+        setprop("/controls/engines/engine["~i~"]/power",0);
+        failed += 1;
+      }
+    }
     return failed;
 };
 
